@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMOFC Tool - Coming Soon</title>
+    <style>
+        /* 3D Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #111, #000);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* Floating Container */
+        .container {
+            position: relative;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            max-width: 500px;
+            width: 80%;
+            transform: rotateX(15deg) rotateY(-15deg);
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
+            50% { transform: rotateX(15deg) rotateY(-15deg) translateY(15px); }
+            100% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
+        }
+
+        /* 3D Logo */
+        .logo img {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 15px gold);
+        }
+
+        /* 3D Text Effect */
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, gold, white);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px gold; }
+            100% { text-shadow: 0 0 30px gold; }
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            font-size: 26px;
+            font-weight: bold;
+            color: gold;
+            margin-top: 10px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 3D Logo -->
+        <div class="logo">
+            <img src="./fampng/faheem.png" alt="FAMOFC Logo">
+        </div>
+
+        <h1>FAMOFC TOOL - COMING SOON</h1>
+        <p>Something powerful is on the way. Stay tuned.</p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown" id="countdown">Loading...</div>
+    </div>
+
+    <script>
+        // Countdown Timer Script
+        function updateCountdown() {
+            const targetDate = new Date("March 30, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>
