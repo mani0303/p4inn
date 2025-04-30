@@ -1,115 +1,106 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAMOFC Tool - Coming Soon</title>
+    <title>Fam ofc sim</title>
+     <link rel="icon" href="./fampng/faheem.png" type="image/png"> 
     <style>
-        /* 3D Background */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: radial-gradient(circle, #111, #000);
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            perspective: 1000px;
-        }
+    font-family: Arial, sans-serif;
+    background: #fff; /* white */
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f0f0f0; /* light gray */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: perspective(800px) rotateX(2deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container:hover {
+    transform: perspective(800px) rotateX(0deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+h1 {
+    text-align: center;
+    color: #000; /* black */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: #000; /* black */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+input[type="text"], input[type="submit"] {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc; /* light gray */
+    border-radius: 8px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+input[type="submit"] {
+    background: #000; /* black */
+    color: #fff; /* white */
+    cursor: pointer;
+    border: none;
+}
+input[type="text"]:focus, input[type="submit"]:hover {
+    box-shadow: inset 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ccc; /* light gray */
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background: #000; /* black */
+    color: #fff; /* white */
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+}
+tr:nth-child(even) {
+    background: #f0f0f0; /* light gray */
+}
+tr:nth-child(odd) {
+    background: #fff; /* white */
+}
+tr:hover {
+    background-color: #e0e0e0; /* slightly darker gray */
+}
 
-        /* Floating Container */
-        .container {
-            position: relative;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            max-width: 500px;
-            width: 80%;
-            transform: rotateX(15deg) rotateY(-15deg);
-            animation: float 4s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
-            50% { transform: rotateX(15deg) rotateY(-15deg) translateY(15px); }
-            100% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
-        }
-
-        /* 3D Logo */
-        .logo img {
-            width: 120px;
-            height: auto;
-            filter: drop-shadow(0 0 15px gold);
-        }
-
-        /* 3D Text Effect */
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, gold, white);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px gold; }
-            100% { text-shadow: 0 0 30px gold; }
-        }
-
-        /* Countdown Timer */
-        .countdown {
-            font-size: 26px;
-            font-weight: bold;
-            color: gold;
-            margin-top: 10px;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- 3D Logo -->
-        <div class="logo">
-            <img src="./fampng/faheem.png" alt="FAMOFC Logo">
-        </div>
+        <h1>FAM OFC<br>SIM DATABASE</h1>
 
-        <h1>FAMOFC TOOL - COMING SOON</h1>
-        <p>Something powerful is on the way. Stay tuned.</p>
+        <!-- Form to submit query -->
+        <form method="POST" action="">
+            <label for="query">Enter your NUMBER</label>
+            <input type="text" id="query" name="query" required>
+            <input type="submit" value="Submit">
+        </form>
 
-        <!-- Countdown Timer -->
-        <div class="countdown" id="countdown">Loading...</div>
-    </div>
-
-    <script>
-        // Countdown Timer Script
-        function updateCountdown() {
-            const targetDate = new Date("March 30, 2025 00:00:00").getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-
+            </div>
+    <center><p>© Faheem™</p></center>
 </body>
 </html>
