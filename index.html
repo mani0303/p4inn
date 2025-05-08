@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
     <title>Tesco Connect</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-    <script src="public/js/confetti.js"></script>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+    />
+    <link id="pageStyle" rel="stylesheet" href="public/styles/styles.css"/>
+    <link rel="stylesheet" href="public/styles/animate.css"/>
 </head>
-<link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous"
-/>
-<link id="pageStyle" rel="stylesheet" href="public/styles/styles.css"/>
-<link rel="stylesheet" href="public/styles/animate.css"/>
-<body onload="q3check()"> <!--DO NOT CHANGE THIS LINE!-->
+
+<body>
 
 <div class="backgroundBG">
     <div class="glitch-img" style="background-image: url('public/images/hacked.jpg')"></div>
@@ -33,11 +34,45 @@
 
 
 <section class="information_text_container">
-
-    <a id="title">Congratulations</a><br><br>
+    <section id="language_selector">Select Language <a id="chevron">&raquo;</a></section>
+    <br><br>
+    <a id="title">Sign in to your account 🙂</a><br><br>
+    <a>The Toolkit provides you and your colleagues with everything you need to work with Tesco, in one
+        place.</a><br><br>
+    <section id="title_content">
+        <a>New to the Toolkit?</a><a href="#"> Request an account</a><br><br>
+    </section>
     <section id="login_container">
-        <a>You Stopped The Hacker!</a><br><br>
-        <center><img src="public/images/trophy.png" style="width: 300px" style="height: 300px"/></center>
+        <form>
+            <section class="form-group">
+                <label id="label" for="exampleInputEmail1">Email address</label>
+                <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="e.g. name@example.com"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.🤣
+                </small
+                >
+            </section>
+            <section class="form-group">
+                <label id="label" for="exampleInputPassword1">Password</label>
+                <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        placeholder="Password"
+                />
+            </section>
+            <a href="#" onclick="forgotEmail()">I've forgotten my email ></a><br>
+            <a href="#" onclick="forgotPassword()">I've forgotten my password ></a><br><br>
+            <button id="submitButton" type="button" class="button" onclick="checkUserName()">
+                Sign In
+            </button>
+        </form>
     </section>
 </section>
 </body>
@@ -59,6 +94,7 @@
         crossorigin="anonymous"
 ></script>
 <script src="public/js/RequestCentre.js"></script>
+<script src="public/js/ScoreCentre.js"></script>
 <script src="public/js/InfoCentre.js"></script>
 <script src="public/js/mgGlitch.min.js"></script>
 <!-- Notification library -->
